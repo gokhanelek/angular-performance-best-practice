@@ -1,0 +1,10 @@
+<div class="child-container">
+  <h3> Child component </h3>
+  <pre>{{person | json}}</pre>
+</div>
+<div>
+  <ul>
+    <li *ngFor="let item of data">{{ item }}</li>
+  </ul>
+  <button (click)="refresh()">Refresh</button>
+</div>

@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Performance practices
+- Splitting by smallest component structure.
+
+- Inject ChangeDetectorRef to your smart component constructor, and call the markForCheck() method to force your component and the children components under you to check for changes and update the UI accordingly.
+
+- Using async pipe provided by Angular to automatically help you unsubscribe to observable if you do not need the data or manipulate the data elsewhere in the application in your Typescript code.
+
+- NgFor directive helps us to iterate our array in Angular templates. However, each time the array is updated or changed, the whole DOM tree re-renders and this can be a potential performance haul. To let Angular know that you only need specific DOM to re-render instead of the whole DOM tree used by the ngFor, we can use trackBy to optimise our ngFor loop performance.

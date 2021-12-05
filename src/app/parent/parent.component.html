@@ -1,0 +1,28 @@
+<div class="container">
+  <h3> Parent component </h3>
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon1">Name</span>
+        <input type="text" class="form-control" [(ngModel)]="person.name" aria-label="PersonName"
+          aria-describedby="Person name add">
+      </div>
+    </div>
+    <div class="col-lg-2">
+      Age:
+      <button class="btn btn-primary" (click)="person.age = person.age+1">+</button> {{ person.age }}
+      <button class="btn  btn-primary" (click)="person.age = person.age-1">-</button>
+    </div>
+    <div class="col-lg-2">
+      <button class="btn btn-outline-primary" (click)="reassign()">Re-Assign</button>
+    </div>
+  </div>
+  <pre class="mr-top">{{ person | json}}</pre>
+  <div class="col-lg-4">
+    <div class="input-group soccer-team-group">
+      <input #inputSoccerTeam type="text" class="form-control" placeholder="Enter new your favorite team">
+      <button class="btn btn-primary" (click)="addSoccerTeam(inputSoccerTeam.value)">Add favorite team</button>
+    </div>
+  </div>
+  <app-child class="mr-top" [person]="person" [data]="soccerTeams"></app-child>
+</div>
